@@ -13,4 +13,14 @@ public class GameRepositoryTest {
 
         Assert.assertNotNull(guessNumberGame);
     }
+
+    @Test
+    public void should_find_game(){
+        GameRepository gameRepository = new GameRepository();
+        GuessNumberGame expectedGuessNumberGame = gameRepository.create();
+
+        GuessNumberGame guessNumberGame = gameRepository.find();
+
+        Assert.assertNotNull(expectedGuessNumberGame);
+    }
 }
