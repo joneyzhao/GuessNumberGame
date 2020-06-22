@@ -4,7 +4,7 @@ import com.twschool.practice.domain.AnswerGenerator;
 import com.twschool.practice.domain.GuessNumberGame;
 
 public class GameRepository {
-    private GuessNumberGame guessNumberGame;
+    private GuessNumberGame guessNumberGame = new GuessNumberGame(new AnswerGenerator());
 
     public GuessNumberGame create() {
         GuessNumberGame guessNumberGame = new GuessNumberGame(new AnswerGenerator());
