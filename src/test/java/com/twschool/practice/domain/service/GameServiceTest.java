@@ -51,4 +51,27 @@ public class GameServiceTest {
         Assert.assertEquals(11, gameService.getTotalGameScores());
     }
 
+//    @Test
+//    public void should_return_add_11_scores_when_continuous_success_6_times () {
+//        GameService gameService = new GameService((new GameRepository()));
+//        gameService.getUserGuessResultString("1 2 3 4");
+//        gameService.getUserGuessResultString("1 2 3 4");
+//        gameService.getUserGuessResultString("1 2 3 4");
+//        gameService.getUserGuessResultString("1 2 3 4");
+//        gameService.getUserGuessResultString("1 2 3 4");
+//        gameService.getUserGuessResultString("1 2 3 4");
+//        Assert.assertEquals(11, gameService.getTotalGameScores());
+//    }
+
+    @Test
+    public void should_return_add_20_scores_when_continuous_success_5_times () {
+        GameService gameService = new GameService((new GameRepository()));
+        gameService.getUserGuessResultString("1 2 3 4");
+        gameService.getUserGuessResultString("1 2 3 4");
+        gameService.getUserGuessResultString("1 2 3 4");
+        gameService.getUserGuessResultString("1 2 3 4");
+        gameService.getUserGuessResultString("1 2 3 4");
+        Assert.assertEquals(20, gameService.getTotalGameScores());
+    }
+
 }

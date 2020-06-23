@@ -42,7 +42,12 @@ public class GameService {
         if (totalSuccesTimes > 0 && totalSuccesTimes % 3 == 0) {
             getThreeExtraScores();
         }
+
+        if (totalSuccesTimes > 0 && totalSuccesTimes % 5 == 0) {
+            getFiveExtraScores();
+        }
     }
+
 
     private void getThreeExtraScores() {
         int extraScoresTimes = totalSuccesTimes / 3;
@@ -50,6 +55,11 @@ public class GameService {
         totalGameScores += extraScoresTimes * 2;
     }
 
+    private void getFiveExtraScores() {
+        int extraScoresTimes = totalSuccesTimes / 5;
+
+        totalGameScores += extraScoresTimes * 3;
+    }
 
     public int getTotalGameScores() {
         return  totalGameScores;
