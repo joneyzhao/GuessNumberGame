@@ -8,7 +8,6 @@ public class GameRepository {
 
 
     public GuessNumberGame create() {
-//        GuessNumberGame guessNumberGame = new GuessNumberGame(new AnswerGenerator());
         GuessNumberGame guessNumberGame = new GuessNumberGame(new AnswerGenerator());
         return guessNumberGame;
     }
