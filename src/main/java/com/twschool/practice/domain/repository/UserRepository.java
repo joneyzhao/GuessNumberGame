@@ -6,8 +6,8 @@ public class UserRepository {
 
     private User user;
 
-    public User createUser(String userId) {
-       user = new User(userId);
+    public User createUser() {
+       user = new User();
        return user;
     }
 
