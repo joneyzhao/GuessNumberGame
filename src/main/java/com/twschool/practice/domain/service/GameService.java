@@ -33,10 +33,11 @@ public class GameService {
         if (GameStatus.SUCCEED == gameStatus) {
             totalGameScores += ONCETIME_SCORES;
             totalSuccesTimes ++;
-        }
-        if (GameStatus.FAILED == gameStatus) {
-            totalGameScores -= ONCETIME_SCORES;
+        } else {
             totalSuccesTimes = 0;
+            if (GameStatus.FAILED == gameStatus) {
+                totalGameScores -= ONCETIME_SCORES;
+            }
         }
 
         if (totalSuccesTimes > 0 && totalSuccesTimes % 3 == 0) {

@@ -43,6 +43,26 @@ public class GameServiceTest {
     }
 
     @Test
+    public void should_return_add_6_scores_when_continuous_success_2_times () {
+        GameService gameService = new GameService((new GameRepository()));
+        gameService.getUserGuessResultString("1 2 3 4");
+        gameService.getUserGuessResultString("1 2 3 4");
+        gameService.getUserGuessResultString("1 5 3 4");
+        Assert.assertEquals(6, gameService.getTotalGameScores());
+    }
+
+    @Test
+    public void should_return_add_12_scores_when_continuous_success_2_times_and_failed_once_and_success_2_times () {
+        GameService gameService = new GameService((new GameRepository()));
+        gameService.getUserGuessResultString("1 2 3 4");
+        gameService.getUserGuessResultString("1 2 3 4");
+        gameService.getUserGuessResultString("1 5 3 4");
+        gameService.getUserGuessResultString("1 2 3 4");
+        gameService.getUserGuessResultString("1 2 3 4");
+        Assert.assertEquals(12, gameService.getTotalGameScores());
+    }
+
+    @Test
     public void should_return_add_11_scores_when_continuous_success_3_times () {
         GameService gameService = new GameService((new GameRepository()));
         gameService.getUserGuessResultString("1 2 3 4");
@@ -52,7 +72,7 @@ public class GameServiceTest {
     }
 
     @Test
-    public void should_return_add_11_scores_when_continuous_success_6_times () {
+    public void should_return_add_25_scores_when_continuous_success_6_times () {
         GameService gameService = new GameService((new GameRepository()));
         gameService.getUserGuessResultString("1 2 3 4");
         gameService.getUserGuessResultString("1 2 3 4");
@@ -75,7 +95,7 @@ public class GameServiceTest {
     }
 
     @Test
-    public void should_return_add_20_scores_when_continuous_success_10_times () {
+    public void should_return_add_42_scores_when_continuous_success_10_times () {
         GameService gameService = new GameService((new GameRepository()));
         gameService.getUserGuessResultString("1 2 3 4");
         gameService.getUserGuessResultString("1 2 3 4");
@@ -89,5 +109,6 @@ public class GameServiceTest {
         gameService.getUserGuessResultString("1 2 3 4");
         Assert.assertEquals(42, gameService.getTotalGameScores());
     }
+
 
 }

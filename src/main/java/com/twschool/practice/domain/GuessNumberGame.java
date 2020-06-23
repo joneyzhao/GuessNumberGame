@@ -24,7 +24,10 @@ public class GuessNumberGame {
             gameStatus = GameStatus.SUCCEED;
         } else if (leftTryTimes == 0) {
             gameStatus = GameStatus.FAILED;
+        } else {
+            gameStatus = GameStatus.CONTINUED;
         }
+
     }
 
 
