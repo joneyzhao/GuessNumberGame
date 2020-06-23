@@ -3,8 +3,6 @@ package com.twschool.practice.domain;
 import com.twschool.practice.domain.repository.GameRepository;
 import com.twschool.practice.domain.service.GameService;
 
-import java.util.HashMap;
-import java.util.Map;
 
 public class User {
     public GameService gameService;
@@ -33,19 +31,12 @@ public class User {
         return totalSuccesTimes;
     }
 
-//    public GameService getGameService() {
-//        return gameService;
-//    }
-
-
-    public Map getResultMap(String params){
-        Map resultMap = new HashMap();
+    public String getResultString(String params){
         String resultStr = gameService.getUserGuessResultString(params);
 
         this.totalGameScores = gameService.getTotalGameScores();
         this.totalSuccesTimes = gameService.getTotalSuccesTimes();
-        resultMap.put("ResultStr", resultStr);
-        return resultMap;
+        return resultStr;
     }
 
 }
