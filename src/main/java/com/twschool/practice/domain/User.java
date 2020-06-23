@@ -1,9 +1,22 @@
 package com.twschool.practice.domain;
 
 import com.twschool.practice.domain.repository.GameRepository;
+import com.twschool.practice.domain.service.GameService;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class User {
-    public GuessNumberGame userMapGame;
+    public GameService gameService;
+
+    public GameService getGameService() {
+        return gameService;
+    }
+
+    public void setGameService(GameService gameService) {
+        this.gameService = gameService;
+    }
+
     public String userId;
 
     public int totalGameScores = 0;
@@ -17,7 +30,7 @@ public class User {
         this.userId = userId;
 
         GameRepository gameRepository = new GameRepository();
-        userMapGame = gameRepository.create();
+        gameService = new GameService(gameRepository );
     }
 
     public String getUserId() {
@@ -44,14 +57,13 @@ public class User {
         this.totalSuccesTimes = totalSuccesTimes;
     }
 
-    public GuessNumberGame getUserMapGame() {
-        return userMapGame;
-    }
+    public Map getResultMap(String params){
+        String resultStr = gameService.getUserGuessResultString(params);
+        Map resultMap = new HashMap();
 
-    public void setUserMapGame(GuessNumberGame userMapGame) {
-        this.userMapGame = userMapGame;
+        resultMap.put("ResultStr", resultStr);
+        return resultMap;
     }
-
 //    public GuessNumberGame seekGameRepository() {
 //        GuessNumberGame userMapGame;
 //        GameRepository gameRepository = new GameRepository();
