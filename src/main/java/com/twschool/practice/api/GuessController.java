@@ -20,7 +20,7 @@ public class GuessController {
     public Map<String,String> guess(@RequestBody Map<String, String> requestBody){
         Map<String, String> responseBody = new HashMap<>();
         String number = requestBody.get("number");
-        String result = gameService.guess(number);
+        String result = gameService.getUserGuessResultString(number);
 
         responseBody.put("input", number);
         responseBody.put("result", result);

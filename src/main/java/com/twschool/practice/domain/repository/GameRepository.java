@@ -4,9 +4,11 @@ import com.twschool.practice.domain.AnswerGenerator;
 import com.twschool.practice.domain.GuessNumberGame;
 
 public class GameRepository {
-    private GuessNumberGame guessNumberGame = new GuessNumberGame(new AnswerGenerator());
+    private GuessNumberGame guessNumberGame;
+
 
     public GuessNumberGame create() {
+//        GuessNumberGame guessNumberGame = new GuessNumberGame(new AnswerGenerator());
         GuessNumberGame guessNumberGame = new GuessNumberGame(new AnswerGenerator());
         return guessNumberGame;
     }
@@ -14,4 +16,12 @@ public class GameRepository {
     public GuessNumberGame find() {
         return guessNumberGame;
     }
+
+    public void setGuessNumberGame(GuessNumberGame guessNumberGame) {
+        this.guessNumberGame = guessNumberGame;
+    }
+    public GuessNumberGame getGuessNumberGame() {
+        return guessNumberGame;
+    }
+
 }

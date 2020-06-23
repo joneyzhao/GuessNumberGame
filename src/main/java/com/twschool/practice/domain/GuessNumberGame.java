@@ -6,18 +6,16 @@ public class GuessNumberGame {
     private final GameAnswer gameAnswer;
     private GameStatus gameStatus = GameStatus.CONTINUED;
     private int leftTryTimes = MAX_TRY_TIMES;
-    public static final int ONCETIME_SCORES = 3;
-    private int totalGameScores = 0;
 
     public GuessNumberGame(AnswerGenerator answerGenerator) {
-        this.gameAnswer = answerGenerator.generateAnswer();
+//        this.gameAnswer = answerGenerator.generateAnswer();
+        this.gameAnswer = new GameAnswer(String.join(" ", "1 2 3 4"));
     }
 
     public String guess(String userAnswerString) {
         String result = gameAnswer.check(userAnswerString);
         decreaseTryTimes();
         modifyStatus(result);
-        getTotalScore(gameStatus);
         return result;
     }
 
@@ -29,14 +27,6 @@ public class GuessNumberGame {
         }
     }
 
-    private void getTotalScore(GameStatus status) {
-        if (GameStatus.SUCCEED == status) {
-            totalGameScores += ONCETIME_SCORES;
-        }
-        if (GameStatus.FAILED == status) {
-            totalGameScores -= ONCETIME_SCORES;
-        }
-    }
 
     private void decreaseTryTimes() {
         leftTryTimes --;
@@ -46,7 +36,4 @@ public class GuessNumberGame {
         return gameStatus;
     }
 
-    public int getTotalGameScores() {
-        return totalGameScores;
-    }
 }

@@ -19,7 +19,7 @@ public class GameRepositoryTest {
 
     @Before
     public void setUp() throws Exception{
-        Mockito.when(gameService.guess(Mockito.any())).thenReturn("4A0B");
+        Mockito.when(gameService.getUserGuessResultString(Mockito.any())).thenReturn("4A0B");
     }
 
     @Test

@@ -64,22 +64,4 @@ public class GuessNumberGameTest {
         Assert.assertEquals(GameStatus.FAILED, gameStatus);
     }
 
-    @Test
-    public void should_add_3_scores_when_success() {
-        guessNumberGame.guess("1 2 3 4");
-        Assert.assertEquals(3, guessNumberGame.getTotalGameScores());
-    }
-
-    @Test
-    public void should_return_minus_3_scores_when_failed() {
-        guessNumberGame.guess("1 2 4 3");
-        guessNumberGame.guess("1 2 5 3");
-        guessNumberGame.guess("1 6 4 3");
-        guessNumberGame.guess("1 4 4 3");
-        guessNumberGame.guess("1 2 9 3");
-        guessNumberGame.guess("1 2 4 7");
-
-        Assert.assertEquals(-3, guessNumberGame.getTotalGameScores());
-    }
-
 }
