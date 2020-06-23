@@ -1,10 +1,24 @@
 package com.twschool.practice.domain;
 
-public class User {
+import com.twschool.practice.domain.repository.GameRepository;
 
+public class User {
+    public GuessNumberGame userMapGame;
     public String userId;
+
     public int totalGameScores = 0;
     public int totalSuccesTimes = 0;
+
+    public User(){
+
+    }
+    public User(String userId){
+        System.out.println("====" + userId);
+        this.userId = userId;
+
+        GameRepository gameRepository = new GameRepository();
+        userMapGame = gameRepository.create();
+    }
 
     public String getUserId() {
         return userId;
@@ -30,4 +44,23 @@ public class User {
         this.totalSuccesTimes = totalSuccesTimes;
     }
 
+    public GuessNumberGame getUserMapGame() {
+        return userMapGame;
+    }
+
+    public void setUserMapGame(GuessNumberGame userMapGame) {
+        this.userMapGame = userMapGame;
+    }
+
+//    public GuessNumberGame seekGameRepository() {
+//        GuessNumberGame userMapGame;
+//        GameRepository gameRepository = new GameRepository();
+//        UserMappingGame userMappingGame = new UserMappingGame();
+//        if (null == gameRepository.getGuessNumberGame()) {
+//            userMapGame = gameRepository.create();
+//        } else {
+//            userMapGame = gameRepository.find();
+//        }
+//        return userMapGame;
+//    }
 }
