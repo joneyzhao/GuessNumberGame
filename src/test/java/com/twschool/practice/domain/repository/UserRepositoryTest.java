@@ -12,4 +12,12 @@ public class UserRepositoryTest {
         User newUser = userRepository.createUser("12");
         Assert.assertNotNull(newUser);
     }
+
+    @Test
+    public void should_return_userInfo_when_seek_user(){
+        UserRepository userRepository = new UserRepository();
+        User newUser = userRepository.createUser("12");
+        User findUser = userRepository.seekUser("12");
+        Assert.assertNotNull(findUser);
+    }
 }
