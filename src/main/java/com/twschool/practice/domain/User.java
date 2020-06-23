@@ -9,14 +9,6 @@ import java.util.Map;
 public class User {
     public GameService gameService;
 
-    public GameService getGameService() {
-        return gameService;
-    }
-
-    public void setGameService(GameService gameService) {
-        this.gameService = gameService;
-    }
-
     public String userId;
 
     public int totalGameScores = 0;
@@ -33,46 +25,27 @@ public class User {
         gameService = new GameService(gameRepository );
     }
 
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
     public int getTotalGameScores() {
         return totalGameScores;
-    }
-
-    public void setTotalGameScores(int totalGameScores) {
-        this.totalGameScores = totalGameScores;
     }
 
     public int getTotalSuccesTimes() {
         return totalSuccesTimes;
     }
 
-    public void setTotalSuccesTimes(int totalSuccesTimes) {
-        this.totalSuccesTimes = totalSuccesTimes;
-    }
+//    public GameService getGameService() {
+//        return gameService;
+//    }
+
 
     public Map getResultMap(String params){
-        String resultStr = gameService.getUserGuessResultString(params);
         Map resultMap = new HashMap();
+        String resultStr = gameService.getUserGuessResultString(params);
 
+        this.totalGameScores = gameService.getTotalGameScores();
+        this.totalSuccesTimes = gameService.getTotalSuccesTimes();
         resultMap.put("ResultStr", resultStr);
         return resultMap;
     }
-//    public GuessNumberGame seekGameRepository() {
-//        GuessNumberGame userMapGame;
-//        GameRepository gameRepository = new GameRepository();
-//        UserMappingGame userMappingGame = new UserMappingGame();
-//        if (null == gameRepository.getGuessNumberGame()) {
-//            userMapGame = gameRepository.create();
-//        } else {
-//            userMapGame = gameRepository.find();
-//        }
-//        return userMapGame;
-//    }
+
 }

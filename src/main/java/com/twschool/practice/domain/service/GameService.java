@@ -8,6 +8,9 @@ public class GameService {
     private GameRepository gameRepository;
     public static final int ONCETIME_SCORES = 3;
     private int totalGameScores = 0;
+
+
+
     private int totalSuccesTimes = 0;
 
     public GameService(GameRepository gameRepository) {
@@ -65,4 +68,9 @@ public class GameService {
     public int getTotalGameScores() {
         return  totalGameScores;
     }
+
+    public int getTotalSuccesTimes() {
+        return totalSuccesTimes;
+    }
+
 }
