@@ -52,13 +52,13 @@ public class GameService {
     private void getThreeExtraScores() {
         int extraScoresTimes = totalSuccesTimes / 3;
 
-        totalGameScores += extraScoresTimes * 2;
+        totalGameScores += 2;
     }
 
     private void getFiveExtraScores() {
         int extraScoresTimes = totalSuccesTimes / 5;
 
-        totalGameScores += extraScoresTimes * 3;
+        totalGameScores += 3;
     }
 
     public int getTotalGameScores() {
