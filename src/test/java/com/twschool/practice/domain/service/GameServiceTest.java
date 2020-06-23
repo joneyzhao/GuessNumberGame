@@ -74,4 +74,20 @@ public class GameServiceTest {
         Assert.assertEquals(20, gameService.getTotalGameScores());
     }
 
+    @Test
+    public void should_return_add_20_scores_when_continuous_success_10_times () {
+        GameService gameService = new GameService((new GameRepository()));
+        gameService.getUserGuessResultString("1 2 3 4");
+        gameService.getUserGuessResultString("1 2 3 4");
+        gameService.getUserGuessResultString("1 2 3 4");
+        gameService.getUserGuessResultString("1 2 3 4");
+        gameService.getUserGuessResultString("1 2 3 4");
+        gameService.getUserGuessResultString("1 2 3 4");
+        gameService.getUserGuessResultString("1 2 3 4");
+        gameService.getUserGuessResultString("1 2 3 4");
+        gameService.getUserGuessResultString("1 2 3 4");
+        gameService.getUserGuessResultString("1 2 3 4");
+        Assert.assertEquals(42, gameService.getTotalGameScores());
+    }
+
 }
