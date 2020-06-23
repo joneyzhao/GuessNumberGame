@@ -31,7 +31,7 @@ public class GameServiceTest {
     }
 
     @Test
-    public void should_return_minus_3_scores_when_failed() {
+    public void should_return_genative_3_scores_when_failed() {
         GameService gameService = new GameService((new GameRepository()));
         gameService.getUserGuessResultString("1 8 3 4");
         gameService.getUserGuessResultString("1 8 3 4");
@@ -40,6 +40,15 @@ public class GameServiceTest {
         gameService.getUserGuessResultString("1 9 3 4");
         gameService.getUserGuessResultString("1 4 3 4");
         Assert.assertEquals(-3, gameService.getTotalGameScores());
+    }
+
+    @Test
+    public void should_return_add_11_scores_when_continuous_success_3_times () {
+        GameService gameService = new GameService((new GameRepository()));
+        gameService.getUserGuessResultString("1 2 3 4");
+        gameService.getUserGuessResultString("1 2 3 4");
+        gameService.getUserGuessResultString("1 2 3 4");
+        Assert.assertEquals(11, gameService.getTotalGameScores());
     }
 
 }

@@ -24,6 +24,7 @@ public class GameService {
         }
         String userGuessResultString = guessNumberGame.guess(userGuessResultStr);
         getUserTotalScore(guessNumberGame);
+
         return userGuessResultString;
     }
 
@@ -31,10 +32,22 @@ public class GameService {
         GameStatus gameStatus =  guessNumberGame.getStatus();
         if (GameStatus.SUCCEED == gameStatus) {
             totalGameScores += ONCETIME_SCORES;
+            totalSuccesTimes ++;
         }
         if (GameStatus.FAILED == gameStatus) {
             totalGameScores -= ONCETIME_SCORES;
+            totalSuccesTimes = 0;
         }
+
+        if (totalSuccesTimes > 0 && totalSuccesTimes % 3 == 0) {
+            getThreeExtraScores();
+        }
+    }
+
+    private void getThreeExtraScores() {
+        int extraScoresTimes = totalSuccesTimes / 3;
+
+        totalGameScores += extraScoresTimes * 2;
     }
 
 
