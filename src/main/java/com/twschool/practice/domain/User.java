@@ -31,8 +31,8 @@ public class User {
         return totalSuccesTimes;
     }
 
-    public String getResultString(String params){
-        String resultStr = gameService.getUserGuessResultString(params);
+    public String getResultString(String answerString){
+        String resultStr = gameService.getUserGuessResultString(answerString);
 
         this.totalGameScores = gameService.getTotalGameScores();
         this.totalSuccesTimes = gameService.getTotalSuccesTimes();
