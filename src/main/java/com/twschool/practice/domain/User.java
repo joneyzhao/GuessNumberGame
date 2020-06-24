@@ -6,15 +6,10 @@ import com.twschool.practice.domain.service.GameService;
 
 public class User {
     public GameService gameService;
-
     public String userId;
-
     public int totalGameScores = 0;
     public int totalSuccesTimes = 0;
 
-    public User(){
-
-    }
     public User(String userId){
         System.out.println("====" + userId);
         this.userId = userId;
