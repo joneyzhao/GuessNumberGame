@@ -11,7 +11,6 @@ public class User {
     public int totalSuccesTimes = 0;
 
     public User(String userId){
-        System.out.println("====" + userId);
         this.userId = userId;
 
         GameRepository gameRepository = new GameRepository();
@@ -22,9 +21,6 @@ public class User {
         return totalGameScores;
     }
 
-    public int getTotalSuccesTimes() {
-        return totalSuccesTimes;
-    }
 
     public String getResultString(String answerString){
         String resultStr = gameService.getUserGuessResultString(answerString);

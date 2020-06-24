@@ -7,10 +7,9 @@ import com.twschool.practice.domain.repository.GameRepository;
 public class GameService {
     private GameRepository gameRepository;
     public static final int ONCETIME_SCORES = 3;
+    public static final int THREE_SUCCESS_EXTRA_SCORES = 2;
+    public static final int FIVE_SUCCESS_EXTRA_SCORES = 3;
     private int totalGameScores = 0;
-
-
-
     private int totalSuccesTimes = 0;
 
     public GameService(GameRepository gameRepository) {
@@ -42,7 +41,10 @@ public class GameService {
                 totalGameScores -= ONCETIME_SCORES;
             }
         }
+        countExtraScores(totalSuccesTimes);
+    }
 
+    private void countExtraScores(int totalSuccesTimes) {
         if (totalSuccesTimes > 0 && totalSuccesTimes % 3 == 0) {
             getThreeExtraScores();
         }
@@ -52,17 +54,16 @@ public class GameService {
         }
     }
 
-
     private void getThreeExtraScores() {
         int extraScoresTimes = totalSuccesTimes / 3;
 
-        totalGameScores += 2;
+        totalGameScores += THREE_SUCCESS_EXTRA_SCORES;
     }
 
     private void getFiveExtraScores() {
         int extraScoresTimes = totalSuccesTimes / 5;
 
-        totalGameScores += 3;
+        totalGameScores += FIVE_SUCCESS_EXTRA_SCORES;
     }
 
     public int getTotalGameScores() {
