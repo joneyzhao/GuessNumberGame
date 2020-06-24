@@ -1,6 +1,5 @@
 package com.twschool.practice.domain.service;
 
-import com.twschool.practice.domain.AnswerGenerator;
 import com.twschool.practice.domain.GuessNumberGame;
 import com.twschool.practice.domain.repository.GameRepository;
 import org.junit.Assert;
